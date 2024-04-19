@@ -1,4 +1,5 @@
 const container = document.getElementById("container"); 
+container.classList.add("container");
 
 function createBoard() {
     let size = prompt("Please enter a number 1-100 for grid size!");
@@ -7,6 +8,7 @@ function createBoard() {
     }
 
     newBoard();
+    let squareSize = Math.floor((600 / size) - 2);
 
     for (let y = 0; y < size; y++) {
         var row = document.createElement("div");
@@ -15,8 +17,11 @@ function createBoard() {
         for (let x = 0; x < size; x++) {
             var squareRow = document.createElement("div");
             squareRow.classList.add("square");
+            squareRow.style.width = squareSize + "px";
+            squareRow.style.height = squareSize + "px";
             row.appendChild(squareRow);
         }
+        
         container.appendChild(row);
     }
     
