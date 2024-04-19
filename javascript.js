@@ -1,13 +1,18 @@
 const container = document.getElementById("container"); 
 container.classList.add("container");
 
-function createBoard() {
-    let size = prompt("Please enter a number 1-100 for grid size!");
-    while (isNaN(size) || size < 1 || size > 100) {
-        size = prompt("Invalid. Please enter a number 1-100 for grid size!");
+function promptUser() {
+    let gridSize = prompt("Please enter a number 1-100 for grid size!");
+    while (isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+        gridSize = prompt("Invalid. Please enter a number 1-100 for grid size!");
     }
+    return gridSize;
+}
 
+function createBoard(size = 16) {
+    size = promptUser();
     newBoard();
+
     let squareSize = Math.floor((600 / size) - 2);
 
     for (let y = 0; y < size; y++) {
